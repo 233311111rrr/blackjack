@@ -61,4 +61,11 @@ git push -u origin main
 - **前端**: React + Tailwind CSS + Framer Motion
 - **跨平台框架**: Capacitor
 - **策略引擎**: 基於 21 點基本策略 (Basic Strategy)
-- **已移除功能**: 根據使用者要求，已移除重放 (Replay) 功能。
+## 4. 常見問題排除
+
+### 推送失敗 (Rejected / non-fast-forward)
+如果你在 `git push` 時遇到錯誤，通常是因為 GitHub 上已有檔案（如 README）。請執行：
+```bash
+git push -u origin main --force
+```
+這會強制將你電腦上的程式碼覆蓋到 GitHub 上。

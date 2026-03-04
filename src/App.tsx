@@ -229,7 +229,7 @@ export default function App() {
                     </div>
                   </div>
                 )}
-                <div className="text-[15px] leading-relaxed whitespace-pre-wrap">
+                <div className="text-[14px] sm:text-[15px] leading-relaxed whitespace-pre-wrap break-words">
                   {msg.content.split('**').map((part, i) => 
                     i % 2 === 1 ? <strong key={i} className="text-blue-400 font-bold">{part}</strong> : part
                   )}
@@ -275,27 +275,27 @@ export default function App() {
             </button>
 
             {/* Input Fields Container */}
-            <div className="flex-1 bg-[#1e1f20] border border-[#3c4043] rounded-[32px] p-2.5 flex items-center gap-2 shadow-2xl focus-within:border-blue-500/50 focus-within:ring-4 focus-within:ring-blue-500/10 transition-all">
-              <div className="flex flex-1 gap-4 px-3">
-                <div className="flex-1 flex flex-col">
-                  <label className="text-[9px] text-blue-400 font-black ml-1 uppercase tracking-tighter">莊家明牌</label>
+            <div className="flex-1 bg-[#1e1f20] border border-[#3c4043] rounded-[24px] sm:rounded-[32px] p-1.5 sm:p-2.5 flex items-center gap-1 sm:gap-2 shadow-2xl focus-within:border-blue-500/50 focus-within:ring-4 focus-within:ring-blue-500/10 transition-all">
+              <div className="flex flex-1 gap-2 sm:gap-4 px-2 sm:px-3">
+                <div className="flex-1 flex flex-col min-w-0">
+                  <label className="text-[8px] sm:text-[9px] text-blue-400 font-black ml-1 uppercase tracking-tighter truncate">莊家</label>
                   <input
                     type="text"
-                    placeholder="A, 10, 2..."
+                    placeholder="A, 10..."
                     value={dealerInput}
                     onChange={(e) => setDealerInput(e.target.value.toUpperCase())}
-                    className="bg-transparent border-none outline-none text-[15px] py-1 placeholder:text-[#444746] text-white font-medium"
+                    className="bg-transparent border-none outline-none text-[13px] sm:text-[15px] py-1 placeholder:text-[#444746] text-white font-medium w-full"
                   />
                 </div>
-                <div className="w-[1px] h-8 bg-[#3c4043] self-center opacity-50" />
-                <div className="flex-[1.5] flex flex-col">
-                  <label className="text-[9px] text-purple-400 font-black ml-1 uppercase tracking-tighter">我的手牌</label>
+                <div className="w-[1px] h-6 sm:h-8 bg-[#3c4043] self-center opacity-50" />
+                <div className="flex-[1.5] flex flex-col min-w-0">
+                  <label className="text-[8px] sm:text-[9px] text-purple-400 font-black ml-1 uppercase tracking-tighter truncate">我的手牌</label>
                   <input
                     type="text"
                     placeholder="8, 8 或 16..."
                     value={playerInput}
                     onChange={(e) => setPlayerInput(e.target.value.toUpperCase())}
-                    className="bg-transparent border-none outline-none text-[15px] py-1 placeholder:text-[#444746] text-white font-medium"
+                    className="bg-transparent border-none outline-none text-[13px] sm:text-[15px] py-1 placeholder:text-[#444746] text-white font-medium w-full"
                   />
                 </div>
               </div>
@@ -303,13 +303,13 @@ export default function App() {
               <button
                 onClick={handleAsk}
                 disabled={!dealerInput || !playerInput}
-                className={`p-3.5 rounded-full transition-all shadow-lg ${
+                className={`p-2.5 sm:p-3.5 rounded-full transition-all shadow-lg shrink-0 ${
                   dealerInput && playerInput 
                     ? 'bg-blue-600 text-white hover:bg-blue-500 hover:scale-105 active:scale-95' 
                     : 'bg-[#3c4043] text-[#131314]'
                 }`}
               >
-                <Send size={20} />
+                <Send size={18} className="sm:w-5 sm:h-5" />
               </button>
             </div>
           </div>
