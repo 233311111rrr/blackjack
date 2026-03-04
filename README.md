@@ -1,71 +1,50 @@
-# Blackjack Pro Advisor - Android & GitHub Sync Guide
+# Blackjack Pro Advisor
+### 你的 21 點智慧策略專家
 
-這是一個基於 React + Vite + Capacitor 的 21 點策略助手。
-
-## 1. 如何同步到 GitHub
-
-由於我無法直接登入你的 GitHub 帳號，請按照以下步驟在你的電腦上操作：
-
-1. **在 GitHub 上建立一個新的 Repository** (例如命名為 `blackjack-pro-advisor`)。
-2. **在你的電腦上打開終端機 (Terminal)**，進入專案目錄。
-3. **執行以下指令：**
-
-```bash
-# 初始化 Git
-git init
-
-# 加入所有檔案
-git add .
-
-# 提交變更
-git commit -m "Initial commit: Blackjack Pro Advisor with Android support"
-
-# 連結到你的 GitHub (請將 <YOUR_GITHUB_URL> 替換為你的 Repo 網址)
-git remote add origin <YOUR_GITHUB_URL>
-
-# 推送到 GitHub
-git branch -M main
-git push -u origin main
-```
+**Blackjack Pro Advisor** 是一款專為 21 點玩家設計的即時策略助手。它結合了數學機率與經典的「基本策略 (Basic Strategy)」，旨在幫助玩家在牌桌上做出最理性、勝率最高的決策，將賭場優勢降至最低。
 
 ---
 
-## 2. 如何生成 Android APK
+## 🌟 核心特色
 
-要生成 APK，你需要在電腦上安裝 **Android Studio**。
+### 1. 即時策略判斷引擎
+根據數學機率精確計算，針對每一手牌提供專業建議：
+- **分牌 (Split)**：精確判斷 A-A, 8-8 等關鍵對子的處理時機。
+- **加倍 (Double Down)**：識別最佳進攻機會，最大化獲利。
+- **停牌 (Stand) 與要牌 (Hit)**：根據莊家明牌與自身點數，給出最穩健的行動建議。
 
-1. **安裝依賴：**
-   ```bash
-   npm install
-   ```
+### 2. Gemini 風格現代化介面
+- **極簡設計**：採用類似 Google Gemini 的對話式介面，操作直觀流暢。
+- **深色模式**：專為長時間使用設計，保護視力且具備高級質感。
+- **圓角美學**：精緻的圓弧形 UI 元件，提供極佳的視覺體驗。
 
-2. **同步網頁程式碼到 Android 專案：**
-   ```bash
-   npm run mobile:sync
-   ```
+### 3. 決策評分與優化系統
+- **即時評分**：每局結束後，系統會根據你的決策執行情況給予 0-100 的評分。
+- **成長追蹤**：內建統計面板，紀錄總局數、平均得分與最高紀錄，幫助你建立博弈紀律。
 
-3. **使用 Android Studio 打開專案：**
-   ```bash
-   npm run mobile:open
-   ```
-
-4. **在 Android Studio 中：**
-   - 等待 Gradle 同步完成。
-   - 點擊選單：**Build > Build Bundle(s) / APK(s) > Build APK(s)**。
-   - 完成後，點擊右下角的 **Locate** 即可找到生成的 `.apk` 檔案。
+### 4. 全方位裝置適配
+- **手機優化**：針對手機直向模式進行深度優化，對話框與輸入區域完美適配，不溢出、不重疊。
+- **電腦相容**：在桌面瀏覽器上同樣具備出色的佈局表現。
 
 ---
 
-## 3. 技術架構
+## 🛠️ 技術架構
 
-- **前端**: React + Tailwind CSS + Framer Motion
-- **跨平台框架**: Capacitor
-- **策略引擎**: 基於 21 點基本策略 (Basic Strategy)
-## 4. 常見問題排除
+- **前端框架**: React 19
+- **樣式處理**: Tailwind CSS 4
+- **動態效果**: Framer Motion
+- **圖示系統**: Lucide React
+- **跨平台支援**: Capacitor (支援轉換為原生 Android App)
 
-### 推送失敗 (Rejected / non-fast-forward)
-如果你在 `git push` 時遇到錯誤，通常是因為 GitHub 上已有檔案（如 README）。請執行：
-```bash
-git push -u origin main --force
-```
-這會強制將你電腦上的程式碼覆蓋到 GitHub 上。
+---
+
+## 🃏 如何使用
+
+1. **輸入莊家明牌**：在左側輸入框輸入莊家當前的明牌（如：A, 10, 7）。
+2. **輸入你的手牌**：在右側輸入框輸入你目前的牌面（如：8, 8 或總和 16）。
+3. **獲取建議**：點擊發送，AI 將立即顯示最佳行動方案。
+4. **結束與評分**：點擊左下角結束按鈕，檢視該局的執行評分並更新統計數據。
+
+---
+
+> **免責聲明**：本軟體僅供學習與娛樂用途。博弈具有風險，請理性對待，切勿過度沉迷。
