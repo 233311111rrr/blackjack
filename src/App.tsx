@@ -53,6 +53,40 @@ const getDecision = (dealerCard: string, playerCards: string[]) => {
   return '要牌 (Hit)';
 };
 
+// --- Components ---
+const BlackjackIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 100 100" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
+    <rect width="100" height="100" rx="24" fill="url(#icon_gradient)" />
+    <defs>
+      <linearGradient id="icon_gradient" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#60A5FA" />
+        <stop offset="1" stopColor="#8B5CF6" />
+      </linearGradient>
+    </defs>
+    {/* Card 1 (Back) */}
+    <rect x="25" y="30" width="35" height="50" rx="4" fill="white" fillOpacity="0.2" transform="rotate(-10 25 30)" />
+    {/* Card 2 (Front) */}
+    <rect x="40" y="25" width="35" height="50" rx="4" fill="white" />
+    <path d="M48 35L52 35M48 40H54M50 32V43" stroke="#131314" strokeWidth="2" strokeLinecap="round" /> {/* Stylized A */}
+    {/* Trending Arrow */}
+    <path 
+      d="M20 75L45 50L60 65L85 30M85 30H70M85 30V45" 
+      stroke="white" 
+      strokeWidth="8" 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
+      className="drop-shadow-lg"
+    />
+  </svg>
+);
+
 export default function App() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [dealerInput, setDealerInput] = useState('');
@@ -129,9 +163,7 @@ export default function App() {
       {/* Header */}
       <header className="flex items-center justify-between px-6 py-4 border-b border-[#3c4043] bg-[#131314]/80 backdrop-blur-md sticky top-0 z-10">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 bg-gradient-to-br from-blue-400 via-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
-            <TrendingUp size={20} className="text-white" />
-          </div>
+          <BlackjackIcon size={36} className="shadow-lg shadow-blue-500/20" />
           <div>
             <h1 className="text-lg font-semibold tracking-tight">Blackjack Pro</h1>
             <p className="text-[10px] text-[#8e918f] uppercase tracking-widest font-bold">Strategy Advisor</p>
@@ -182,8 +214,8 @@ export default function App() {
         {messages.length === 0 && (
           <div className="flex flex-col items-center justify-center h-full text-center space-y-6 max-w-sm mx-auto">
             <div className="relative">
-              <div className="absolute -inset-4 bg-blue-500/10 blur-2xl rounded-full" />
-              <Info size={56} className="text-blue-500 relative" />
+              <div className="absolute -inset-8 bg-blue-500/10 blur-3xl rounded-full" />
+              <BlackjackIcon size={80} className="relative drop-shadow-2xl" />
             </div>
             <div className="space-y-2">
               <h2 className="text-xl font-medium text-white">準備好贏過莊家了嗎？</h2>
