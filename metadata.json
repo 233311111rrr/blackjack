@@ -1,0 +1,5 @@
+{
+  "name": "Blackjack Pro Advisor",
+  "description": "基於數學機率與基本策略的 21 點即時判斷助手，具備每局評分與優化功能。",
+  "requestFramePermissions": []
+}

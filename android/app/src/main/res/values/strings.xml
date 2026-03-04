@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Blackjack Pro Advisor</string>
+    <string name="title_activity_main">Blackjack Pro Advisor</string>
+    <string name="package_name">com.blackjackpro.advisor</string>
+    <string name="custom_url_scheme">com.blackjackpro.advisor</string>
+</resources>
