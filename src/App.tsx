@@ -54,38 +54,41 @@ const getDecision = (dealerCard: string, playerCards: string[]) => {
 };
 
 // --- Components ---
-const BlackjackIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
-  <svg 
-    width={size} 
-    height={size} 
-    viewBox="0 0 100 100" 
-    fill="none" 
-    xmlns="http://www.w3.org/2000/svg"
-    className={className}
-  >
-    <rect width="100" height="100" rx="24" fill="url(#icon_gradient)" />
-    <defs>
-      <linearGradient id="icon_gradient" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#60A5FA" />
-        <stop offset="1" stopColor="#8B5CF6" />
-      </linearGradient>
-    </defs>
-    {/* Card 1 (Back) */}
-    <rect x="25" y="30" width="35" height="50" rx="4" fill="white" fillOpacity="0.2" transform="rotate(-10 25 30)" />
-    {/* Card 2 (Front) */}
-    <rect x="40" y="25" width="35" height="50" rx="4" fill="white" />
-    <path d="M48 35L52 35M48 40H54M50 32V43" stroke="#131314" strokeWidth="2" strokeLinecap="round" /> {/* Stylized A */}
-    {/* Trending Arrow */}
-    <path 
-      d="M20 75L45 50L60 65L85 30M85 30H70M85 30V45" 
-      stroke="white" 
-      strokeWidth="8" 
-      strokeLinecap="round" 
-      strokeLinejoin="round" 
-      className="drop-shadow-lg"
-    />
-  </svg>
-);
+const BlackjackIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => {
+  const gradientId = useMemo(() => `icon_grad_${Math.random().toString(36).substr(2, 9)}`, []);
+  return (
+    <svg 
+      width={size} 
+      height={size} 
+      viewBox="0 0 100 100" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <rect width="100" height="100" rx="24" fill={`url(#${gradientId})`} />
+      <defs>
+        <linearGradient id={gradientId} x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#60A5FA" />
+          <stop offset="1" stopColor="#8B5CF6" />
+        </linearGradient>
+      </defs>
+      {/* Card 1 (Back) */}
+      <rect x="25" y="30" width="35" height="50" rx="4" fill="white" fillOpacity="0.2" transform="rotate(-10 25 30)" />
+      {/* Card 2 (Front) */}
+      <rect x="40" y="25" width="35" height="50" rx="4" fill="white" />
+      <path d="M48 35L52 35M48 40H54M50 32V43" stroke="#131314" strokeWidth="2" strokeLinecap="round" /> {/* Stylized A */}
+      {/* Trending Arrow */}
+      <path 
+        d="M20 75L45 50L60 65L85 30M85 30H70M85 30V45" 
+        stroke="white" 
+        strokeWidth="8" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        className="drop-shadow-lg"
+      />
+    </svg>
+  );
+};
 
 export default function App() {
   const [messages, setMessages] = useState<Message[]>([]);
